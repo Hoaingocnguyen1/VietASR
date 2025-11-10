@@ -1135,7 +1135,7 @@ class Eve(Optimizer):
 def _test_scaled_adam(hidden_dim: int):
     import timeit
 
-    from scaling import ScaledLinear
+    from ASR.zipformer.model.utils.scaling import ScaledLinear
 
     E = 100
     B = 4

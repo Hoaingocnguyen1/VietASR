@@ -110,7 +110,7 @@ import sentencepiece as spm
 import torch
 import torch.nn as nn
 from asr_datamodule import AsrDataModule
-from beam_search import (
+from ASR.zipformer.model.beam_search import (
     beam_search,
     fast_beam_search_nbest,
     fast_beam_search_nbest_LG,

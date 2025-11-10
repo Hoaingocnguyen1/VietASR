@@ -16,6 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Standard library
 import copy
 import logging
 import math
@@ -23,30 +24,30 @@ import random
 import warnings
 from typing import List, Optional, Tuple, Union
 
+# Third-party
 import torch
-from encoder_interface import EncoderInterface
-from scaling import (
-    Identity,
-)  # more friendly to backward hooks than nn.Identity(), for diagnostic reasons.
-from scaling import (
-    ScaledLinear,
-)  # not as in other dirs.. just scales down initial parameter values.
-from scaling import (
+from torch import Tensor, nn
+
+# Local modules - Core
+from .encoder_interface import EncoderInterface
+
+# Local modules - Scaling utilities
+from .utils.scaling import (
     ActivationDropoutAndLinear,
     Balancer,
     BiasNorm,
     ChunkCausalDepthwiseConv1d,
     Dropout2,
     FloatLike,
+    Identity,
     ScheduledFloat,
+    ScaledLinear,
     Whiten,
     convert_num_channels,
     limit_param_value,
     penalize_abs_values_gt,
     softmax,
 )
-from torch import Tensor, nn
-
 
 class Zipformer2(EncoderInterface):
     """

@@ -41,7 +41,7 @@ import numpy as np
 import sentencepiece as spm
 import torch
 from asr_datamodule import LibriSpeechAsrDataModule
-from decode_stream import DecodeStream
+from ASR.zipformer.model.decode_stream import DecodeStream
 from icefall.checkpoint import (
     average_checkpoints,
     average_checkpoints_with_averaged_model,
@@ -58,7 +58,7 @@ from icefall.utils import (
 )
 from kaldifeat import Fbank, FbankOptions
 from lhotse import CutSet
-from streaming_beam_search import (
+from ASR.zipformer.model.streaming_beam_search import (
     fast_beam_search_one_best,
     greedy_search,
     modified_beam_search,

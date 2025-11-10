@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import torch
-from scaling import ScheduledFloat
-from subsampling import Conv2dSubsampling
+from ASR.zipformer.model.utils.scaling import ScheduledFloat
+from ASR.zipformer.model.subsampling import Conv2dSubsampling
 
 
 def test_conv2d_subsampling():

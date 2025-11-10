@@ -101,7 +101,7 @@ import k2
 import kaldifeat
 import torch
 import torchaudio
-from ctc_decode import get_decoding_params
+from ASR.zipformer.inference.ctc_decode import get_decoding_params
 from export import num_tokens
 from icefall.decode import (
     get_lattice,

@@ -16,6 +16,7 @@
 # limitations under the License.
 
 
+# Standard library
 import argparse
 import inspect
 import logging
@@ -26,12 +27,12 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+# Third-party
 import lhotse
 import torch
-from dataset import PseudoRecognitionDataset
-from icefall.utils import str2bool
-from lhotse import CutSet, Fbank, FbankConfig, load_manifest, load_manifest_lazy
-from lhotse.dataset import (  # noqa F401 for PrecomputedFeatures
+from lhotse import CutSet, Fbank, FbankConfig
+from lhotse import load_manifest, load_manifest_lazy
+from lhotse.dataset import (
     CutConcatenate,
     CutMix,
     DynamicBucketingSampler,
@@ -40,12 +41,17 @@ from lhotse.dataset import (  # noqa F401 for PrecomputedFeatures
     SimpleCutSampler,
     SpecAugment,
 )
-from lhotse.dataset.input_strategies import (  # noqa F401 For AudioSamples
+from lhotse.dataset.input_strategies import (
     AudioSamples,
     OnTheFlyFeatures,
 )
 from lhotse.utils import fix_random_seed
 from torch.utils.data import DataLoader
+
+# Local modules
+from .model.utils.dataset import PseudoRecognitionDataset
+from icefall.utils import str2bool
+
 
 
 class _SeedWorkers:

@@ -21,9 +21,9 @@ from typing import Optional, Tuple
 import k2
 import torch
 import torch.nn as nn
-from encoder_interface import EncoderInterface
+from ASR.zipformer.model.encoder_interface import EncoderInterface
 from icefall.utils import add_sos, make_pad_mask
-from scaling import ScaledLinear
+from ASR.zipformer.model.utils.scaling import ScaledLinear
 
 
 class AsrModel(nn.Module):

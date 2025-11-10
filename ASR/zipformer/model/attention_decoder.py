@@ -23,8 +23,8 @@ import k2
 import torch
 import torch.nn as nn
 from icefall.utils import add_eos, add_sos, make_pad_mask
-from label_smoothing import LabelSmoothingLoss
-from scaling import penalize_abs_values_gt
+from ASR.zipformer.model.utils.label_smoothing import LabelSmoothingLoss
+from ASR.zipformer.model.utils.scaling import penalize_abs_values_gt
 
 
 class AttentionDecoderModel(nn.Module):

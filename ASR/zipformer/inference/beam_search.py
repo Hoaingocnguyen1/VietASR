@@ -15,14 +15,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Standard library
+import logging
 import math
 import warnings
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Tuple, Union
 
+# Third-party
 import k2
 import sentencepiece as spm
 import torch
+from torch import nn
+
+# Icefall
 from icefall import ContextGraph, ContextState, NgramLm, NgramLmStateCost
 from icefall.decode import Nbest, one_best_decoding
 from icefall.lm_wrapper import LmScorer
@@ -36,7 +42,7 @@ from icefall.utils import (
     get_texts,
     get_texts_with_timestamp,
 )
-from torch import nn
+
 
 
 def fast_beam_search_one_best(

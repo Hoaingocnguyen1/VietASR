@@ -1,0 +1,47 @@
+# requirements.txt
+
+# Cài đặt NumPy trước
+numpy
+
+# Cài đặt PyTorch và TorchAudio cho CUDA 12.1
+--index-url https://download.pytorch.org/whl/cu121
+torch==2.3.1
+torchaudio==2.3.1
+
+# Cài đặt k2 tương thích
+--find-links https://k2-fsa.github.io/k2/cuda.html
+k2==1.24.4.dev20240223+cuda12.1.torch2.3.1
+
+# Cài đặt lhotse từ Git
+git+https://github.com/lhotse-speech/lhotse
+
+# Các thư viện khác cho API của bạn, ví dụ:
+fastapi
+uvicorn```
+
+### Quy trình làm việc của bạn với Docker
+
+1.  Tạo file `Dockerfile` như trên trong thư mục gốc của dự án.
+2.  Tạo file `requirements.txt` như trên.
+3.  Viết code cho API của bạn (ví dụ: `api_server.py`).
+4.  Mở terminal trong thư mục dự án và chạy lệnh **build**:
+    ```bash
+    docker build -t my-asr-api .
+    ```
+    Lệnh này sẽ đọc `Dockerfile` và thực hiện từng bước để tạo ra một "image" tên là `my-asr-api`. Quá trình này có thể mất nhiều thời gian trong lần đầu tiên.
+
+5.  Sau khi build xong, bạn có thể chạy API của mình bằng lệnh **run**:
+    ```bash
+    # Chạy container, ánh xạ cổng 8000 của container ra cổng 8000 của máy bạn
+    # --gpus all là bắt buộc để container có thể sử dụng GPU
+    docker run -p 8000:8000 --gpus all my-asr-api
+    ```
+
+**Kết luận:** Bạn không chỉ "cần" làm requirements, mà bạn phải **tự động hóa toàn bộ quá trình cài đặt phức tạp** đó vào trong một `Dockerfile`. Đây là sức mạnh và cũng là yêu cầu cốt lõi khi làm việc với Docker.
+
+pip install k2==1.24.4.dev20250304+cuda12.4.torch2.6.0 dphao :)) check lai linux hay gpu-f https://k2-fsa.github.io/k2/cuda.html
+pip install git+https://github.com/lhotse-speech/lhotse
+ice fall như mẫu
+$env:PYTHONPATH = "E:\VietASR\VietASR\tmp\icefall;" + $env:PYTHONPATH
+mkdir -Force $CONDA_PREFIX\etc\conda\activate.d
+New-Item -Path "$CONDA_PREFIX\etc\conda\activate.d\env_vars.ps1" -ItemType File -Force

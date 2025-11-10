@@ -28,7 +28,7 @@ import sentencepiece as spm
 import torch
 from icefall.profiler import get_model_profile
 from icefall.utils import make_pad_mask
-from scaling import BiasNorm
+from ASR.zipformer.model.utils.scaling import BiasNorm
 from torch import Tensor, nn
 from train import (
     add_model_arguments,
@@ -37,7 +37,7 @@ from train import (
     get_joiner_model,
     get_params,
 )
-from zipformer import BypassModule
+from ASR.zipformer.model.zipformer import BypassModule
 
 
 def get_parser():

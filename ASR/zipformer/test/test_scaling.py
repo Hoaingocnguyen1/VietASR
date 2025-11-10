@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 import torch
-from scaling import PiecewiseLinear, ScheduledFloat, SwooshL, SwooshR
+from ASR.zipformer.model.utils.scaling import PiecewiseLinear, ScheduledFloat, SwooshL, SwooshR
 
 
 def test_piecewise_linear():

@@ -172,7 +172,7 @@ from icefall.checkpoint import (
     load_checkpoint,
 )
 from icefall.utils import make_pad_mask, num_tokens, str2bool
-from scaling_converter import convert_scaled_to_non_scaled
+from ASR.zipformer.model.utils.scaling_converter import convert_scaled_to_non_scaled
 from torch import Tensor, nn
 from train import add_model_arguments, get_model, get_params
 
